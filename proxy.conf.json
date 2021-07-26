@@ -1,0 +1,8 @@
+{
+  "/api/*": {
+    "target": "https://desafio-api-armpb.herokuapp.com/api",
+    "secure": true,
+    "logLevel": "debug"
+  }
+}
+

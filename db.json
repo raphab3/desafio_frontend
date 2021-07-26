@@ -1,0 +1,32 @@
+{
+  "clients": [
+    {
+      "id": 1,
+      "name": "Rafael Batista",
+      "cpf": "08420698440",
+      "birthDate": "2021-07-23T13:08:22.252-03:00",
+      "addresses": [
+        {
+          "zipCode": "58059845",
+          "street": "Rua Praia dos Mariscos",
+          "number": "11",
+          "district": "Mangabeira",
+          "city": "João Pessoa",
+          "uf": "PB",
+          "complement": "Casa"
+        }
+      ]
+    }
+  ],
+  "orders": [
+    {
+      "id": 1,
+      "amount": "50.7",
+      "client": {
+        "id": 1,
+        "name": "Rafael Batista",
+        "cpf": "08420698440"
+      }
+    }
+  ]
+}
