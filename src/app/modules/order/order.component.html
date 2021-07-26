@@ -31,7 +31,7 @@
 
       <div class="welcome-card" *ngSwitchCase="'all'">
 
-        <ion-searchbar (ionChange)="alterSearch($event)" placeholder="Buscar" showCancelButton="focus" debounce="500">
+        <ion-searchbar  type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Buscar" showCancelButton="focus" debounce="500">
         </ion-searchbar>
 
         <ion-list>
@@ -39,7 +39,7 @@
             Resultado:
           </ion-list-header>
 
-          <ion-item *ngFor="let client of clients.value">
+          <ion-item *ngFor="let client of clients.value | filter:searchText">
 
             <ion-row>
               <ion-col size="12">
@@ -98,7 +98,7 @@
 
         <form action="#!" [formGroup]="form">
           <ion-item [disabled]="typeSaved.icon == 'pencil'">
-            <ion-label position="floating">Client:</ion-label>
+            <ion-label position="floating">Cliente:</ion-label>
             <ion-select placeholder="Selecione um cliente" formControlName="clientId">
               <ion-select-option [value]="client.id" *ngFor="let client of clients.value">{{client.name}}
               </ion-select-option>
@@ -107,7 +107,7 @@
 
           <ion-item>
             <ion-label position="floating">Total:</ion-label>
-            <ion-input type="decimal" formControlName="amount"></ion-input>
+            <ion-input placeholder="Ex: 10.90" formControlName="amount"></ion-input>
           </ion-item>
 
           <ion-button color="primary" expand="full" (click)="save()" *ngIf="typeSaved.icon != 'pencil'">

@@ -23,6 +23,7 @@ export class ClientComponent implements OnInit {
   clients = new BehaviorSubject<[]>([]);
   corporationSelected: string;
   typeSaved = { label: "Adicionar", icon: "add" }
+  searchText
   constructor(
     private http: HttpService,
     private fb: FormBuilder,
@@ -72,23 +73,6 @@ export class ClientComponent implements OnInit {
           this.form.controls['uf'].setValue(endereco.uf)
         });
       }
-    }
-  }
-
-  alterSearch(ev: any) {
-    const value = ev.detail.value.toUpperCase()
-    console.log('value => ', value)
-    let maior = 0
-    if (value && value.length > maior) {
-      maior = value.length
-      console.log('maior => ', maior, " tamAux=> ", value.length)
-
-      let corps = this.clients.value
-      const a: any = corps.filter((a: any) => `${a.name}`.toUpperCase().includes(value))
-      console.log("A => ", a)
-      this.clients.next(a)
-    } else {
-      this.getAll()
     }
   }
 

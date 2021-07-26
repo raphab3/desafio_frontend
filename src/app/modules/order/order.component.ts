@@ -22,6 +22,8 @@ export class OrderComponent implements OnInit {
   clients = new BehaviorSubject<[]>([]);
   corporationSelected: string;
   typeSaved = { label: "Adicionar", icon: "add" }
+  searchText
+
   constructor(
     private http: HttpService,
     private fb: FormBuilder,
@@ -49,19 +51,6 @@ export class OrderComponent implements OnInit {
       duration: 2000
     });
     toast.present();
-  }
-
-  alterSearch(ev: any) {
-    const value = ev.detail.value.toUpperCase()
-    let maior = 0
-    if (value && value.length > maior) {
-      maior = value.length
-      let corps = this.clients.value
-      const a: any = corps.filter((a: any) => `${a.id}`.includes(value))
-      this.clients.next(a)
-    } else {
-      this.getAllClients()
-    }
   }
 
   segmentChanged(ev: any) {

@@ -31,7 +31,7 @@
 
       <div class="welcome-card" *ngSwitchCase="'all'">
 
-        <ion-searchbar (ionChange)="alterSearch($event)" placeholder="Buscar" showCancelButton="focus" debounce="500">
+        <ion-searchbar type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Buscar" showCancelButton="focus" debounce="500">
         </ion-searchbar>
 
         <ion-list>
@@ -39,11 +39,9 @@
             Resultado:
           </ion-list-header>
 
-          <ion-item *ngFor="let client of clients.value">
-
+          <ion-item *ngFor="let client of clients.value | filter:searchText">
 
             <ion-row>
-
               <ion-col size="12">
                 <ion-label>
                   <h2>

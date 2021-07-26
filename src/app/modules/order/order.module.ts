@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 const routes: Routes = [
   {
@@ -20,6 +21,8 @@ const routes: Routes = [
     FormsModule,
     IonicModule,
     ReactiveFormsModule,
+    Ng2SearchPipeModule
+
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
